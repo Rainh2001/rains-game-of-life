@@ -1,5 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
+class Cell {
+    constructor(alive){
+        this.live = alive;
+        this.level = alive ? 3 : 0;
+    }
+}
+
 const generate2DArray = (rows, cols, random) => {
     let arr = [];
     for(let i = 0; i < rows; i++){
@@ -163,13 +170,14 @@ function GameOfLife(props) {
                             <div 
                             key={`(${i}, ${j})`}
                             style={{
-                                border: "1px solid rgb(51, 51, 51)",
+                                border: !playing ? "1px solid rgb(51, 51, 51)" : "",
                                 width: `${size}px`,
                                 height: `${size}px`,
                                 background: cell ? "lime" : "black"
                             }}
                             onClick={() => {
-                                if(playing) setPlaying(false);
+                                // if(playing) setPlaying(false);
+                                if(playing) return;
                                 setGrid(currentGrid => {
                                     let current = JSON.parse(JSON.stringify(currentGrid));
                                     current[i][j] = current[i][j] ? 0 : 1;
