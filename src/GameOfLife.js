@@ -119,6 +119,14 @@ function GameOfLife(props) {
                 <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
             </ol>
             <p>Start by either clicking the 'Random' button or bringing some cells to life by clicking the boxes. When you're ready to see magic, click 'Start The Game of Life'.</p>
+            <p>
+                A multitude of varying 2D entities can be produced through the previously stated rules; still lifes, oscillators, spaceships... Check them out here:  
+                <a rel="noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns">Example Patterns</a>
+            </p>
+            <p>
+                If you're interested to learn more, or need some context, read the wikipedia article: 
+                <a rel="noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a>
+            </p>
             <button onClick={() => {
                 setPlaying(current => !current);
                 playingRef.current = !playingRef.current;
@@ -140,7 +148,6 @@ function GameOfLife(props) {
             }}>
                 Clear
             </button>
-            <a rel="noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns">Try Out Some Cool Examples</a>
             <div 
             className="game-container"
             style={{
